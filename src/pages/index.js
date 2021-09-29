@@ -38,7 +38,7 @@ const IndexPage = () => (
             <h4>
               Disco Trivialis
             </h4>
-            <p class="descriptor">
+            <p class="descriptor hidescroll">
               Assisted an experienced developer create a multiplayer web-app using a React frontend and a Node.js backend. The app consisted of rounds of trivia while betting points. Designed and styled the user interface to work with game functions offered.
             </p>
             <a class="outbound-link" href="https://imgur.com/a/3yDoOhQ">Screenshots</a>
@@ -49,7 +49,7 @@ const IndexPage = () => (
             <h4>
               Chartrand Photo
             </h4>
-            <p>
+            <p class="descriptor hidescroll">
               A functional exercise in designing and implementing a landing page for a photography business. Simplicity and functionality was the focus, as well as having an equal experience between mobile and desktop browers.
             </p>
             <a class="outbound-link" href="http://chartrand.photo/">Website</a>
@@ -62,7 +62,7 @@ const IndexPage = () => (
               <h4>
                 GZCLP Workout Generator
               </h4>
-              <p>
+              <p class="descriptor hidescroll">
                 Using the Expo-CLI for React-Native development, took a simple workout generator concept and constructed an app. 
               </p>
               <a class="outbound-link" href="https://github.com/boosterlong/PumpDump">GitHub and Screenshots</a>
@@ -73,7 +73,7 @@ const IndexPage = () => (
               <h4>
                 The Forest of Judithia
               </h4>
-              <p>
+              <p class="descriptor hidescroll">
                 Developed a fun little game where the Hero defeats teams of randomly generated enemies. 
               </p>
               <a class="outbound-link" href="https://github.com/boosterlong/roguelikeautobattler">GitHub and Screenshots</a>
