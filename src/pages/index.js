@@ -63,9 +63,9 @@ const IndexPage = () => (
                 GZCLP Workout Generator
               </h4>
               <p class="descriptor hidescroll">
-                Using the Expo-CLI for React-Native development, took a simple workout generator concept and constructed an app. 
+                Using the Expo-CLI for React-Native development, took a workout generator concept and constructed an app. 
               </p>
-              <a class="outbound-link" href="https://github.com/boosterlong/PumpDump">GitHub and Screenshots</a>
+              <a class="outbound-link" href="https://github.com/boosterlong/PumpDump">GitHub</a>
             </div>
       </div>
       <div class="column">
@@ -76,7 +76,7 @@ const IndexPage = () => (
               <p class="descriptor hidescroll">
                 Developed a fun little game where the Hero defeats teams of randomly generated enemies. 
               </p>
-              <a class="outbound-link" href="https://github.com/boosterlong/roguelikeautobattler">GitHub and Screenshots</a>
+              <a class="outbound-link" href="https://github.com/boosterlong/roguelikeautobattler">GitHub</a>
             </div>
       </div>
     </div>
