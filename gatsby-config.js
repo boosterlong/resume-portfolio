@@ -3,7 +3,7 @@ module.exports = {
     title: `Blake Chartrand Dev Resume`,
     description: `Some info on Blake Chartrand's Web Development Experience`,
     author: `Blake Chartrand`,
-    siteUrl: `www.blakechartrand.com`,
+    siteUrl: `https://resumeportfolio66363.gatsbyjs.io/`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
