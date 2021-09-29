@@ -11,7 +11,7 @@ const IndexPage = () => (
     <div class="content">
     <h3 class="horizontal-line">Professional Summary</h3>
     <p>
-      Goal-driven and creatively-diverse Hobbyist Web Developer with a varied skillset and great work ethic. Well-suited to fast-paced work environments, and thrives on longer detail-oriented projects. Strong communication skills for interacting with clients and peers. Proficient in HTML, JS and CSS for React and Rails based websites. Very open to learning new technologies and will actively seek out new ways of doing things.
+      Goal-driven and creatively-diverse Hobbyist Web Developer with a varied skillset and great work ethic. Well-suited to fast-paced work environments, and thrives on longer detail-oriented projects. Strong communication skills for interacting with clients and peers. Knowledgeable in HTML, JS and CSS for React and Rails based websites. Very open to learning new technologies and will actively seek out new ways of doing things.
     </p>
     <h3 class="horizontal-line">Programming Skills</h3>
     <p>
