@@ -611,20 +611,26 @@ pre tt:after {
   }
 }
 
-.column {
-  float: left;
-  width: 49%;
-  padding: 10px;
-  height: 300px;
-  border: 1px dotted #ffcb6b;
-  margin: 0.1rem;
+@media only screen and (min-width: 480px)
+{  
+  .column {
+    float: left;
+    width: 49%;
+    padding: 10px;
+    height: 300px;
+    border: 1px dotted #ffcb6b;
+    margin: 0.1rem;
+  }
+
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+
 }
 
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
 
 ul {
   list-style-image: url(../images/check.svg);
@@ -651,4 +657,10 @@ p.descriptor {
 .hidescroll {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+}
+
+.column {
+  padding: 0.1rem;
+  border: 1px dotted #ffcb6b;
+  margin: 0.1rem;
 }
