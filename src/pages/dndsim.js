@@ -64,10 +64,10 @@ export default function SecondPage() {
             <FormControl style={{marginBottom:'1rem'}}>
               <InputLabel
                 htmlFor="combatant1ac">
-                  Armor className
+                  Armor Class
               </InputLabel>
               <OutlinedInput 
-                label="Armor className"
+                label="Armor Class"
                 type="number"
                 id="combatant1ac"
                 name="combatant1ac"
@@ -160,10 +160,10 @@ export default function SecondPage() {
             <FormControl style={{marginBottom:'1rem'}}>
               <InputLabel
                 htmlFor="combatant2ac">
-                  Armor className
+                  Armor Class
               </InputLabel>
               <OutlinedInput 
-                label="Armor className"
+                label="Armor Class"
                 type="number"
                 id="combatant2ac"
                 name="combatant2ac"
