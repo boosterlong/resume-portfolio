@@ -30,8 +30,9 @@ function getRandomInt(max) {
 }
 
 function rollToHit(bonus, armor) {
-    let roll = rollDie(20) + bonus
-    if (+roll >= +armor) {
+    let roll = rollDie(20) + parseInt(bonus)
+    console.log(roll)
+    if (roll >= armor) {
         return true
     }
     else {
