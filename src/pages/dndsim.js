@@ -13,12 +13,12 @@ import { MenuItem, Select } from "@mui/material";
 
 export default function SecondPage() {
 
-  const [dice1, setDice1] = React.useState(4);
+  const [dice1, setDice1] = React.useState(8);
 
   const handleChange = (event) => {
     setDice1(event.target.value); 
   };
-  const [dice2, setDice2] = React.useState(4);
+  const [dice2, setDice2] = React.useState(12);
 
   const handleChange2 = (event) => {
     setDice2(event.target.value);
@@ -42,7 +42,7 @@ export default function SecondPage() {
                 label="Name"
                 id="combatant1"
                 name="combatant1"
-                defaultValue="Aggressor"
+                defaultValue="Town Guard"
                 size="small"
               />
             </FormControl>
@@ -56,7 +56,7 @@ export default function SecondPage() {
                 type="number"
                 id="combatant1hp"
                 name="combatant1hp"
-                defaultValue="50"
+                defaultValue="11"
                 size="small"/>
             </FormControl>
             <br />
@@ -70,7 +70,7 @@ export default function SecondPage() {
                 type="number"
                 id="combatant1ac"
                 name="combatant1ac"
-                defaultValue="15" 
+                defaultValue="16" 
                 size="small"/>
             </FormControl>
             <br />
@@ -84,7 +84,7 @@ export default function SecondPage() {
                 type="number"
                 id="combatant1bab"
                 name="combatant1bab"
-                defaultValue="0"
+                defaultValue="3"
                 size="small" />
             </FormControl>
             <br />
@@ -118,7 +118,7 @@ export default function SecondPage() {
                 type="number"
                 id="combatant1damagebonus"
                 name="combatant1damagebonus"
-                defaultValue="0"
+                defaultValue="1"
                 size="small" />
             </FormControl>
           </form>
@@ -138,7 +138,7 @@ export default function SecondPage() {
                 label="Name"
                 id="combatant2"
                 name="combatant2"
-                defaultValue="Defender"
+                defaultValue="Orc"
                 size="small"
               />
             </FormControl>
@@ -152,7 +152,7 @@ export default function SecondPage() {
                 type="number"
                 id="combatant2hp"
                 name="combatant2hp"
-                defaultValue="50"
+                defaultValue="15"
                 size="small"/>
             </FormControl>
             <br />
@@ -166,7 +166,7 @@ export default function SecondPage() {
                 type="number"
                 id="combatant2ac"
                 name="combatant2ac"
-                defaultValue="15" 
+                defaultValue="13" 
                 size="small"/>
             </FormControl>
             <br />
@@ -180,7 +180,7 @@ export default function SecondPage() {
                 type="number"
                 id="combatant2bab"
                 name="combatant2bab"
-                defaultValue="0"
+                defaultValue="5"
                 size="small" />
             </FormControl>
             <br />
@@ -213,7 +213,7 @@ export default function SecondPage() {
                 type="number"
                 id="combatant2damagebonus"
                 name="combatant2damagebonus"
-                defaultValue="0"
+                defaultValue="3"
                 size="small" />
             </FormControl>
           </form>
