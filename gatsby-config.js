@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
     title: `Blake Chartrand Dev Resume`,
-    description: `Some info on Blake Chartrand's Web Development Experience`,
+    description: `Blake Chartrand is a hobbyist developer and professional photographer.`,
     author: `Blake Chartrand`,
-    siteUrl: `https://resumeportfolio66363.gatsbyjs.io/`,
+    siteUrl: `https://blakechartrand.com/`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

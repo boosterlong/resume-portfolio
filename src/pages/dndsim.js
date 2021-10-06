@@ -27,7 +27,7 @@ export default function SecondPage() {
 
   return (
   <Layout>
-    <Seo title="Page two" />
+    <Seo title="DnD Combat Sim" />
 {/* Does not format great on mobile yet. But is passable for now. */}
       <div className="row">
         <div className="column" style={{backgroundColor:'#6B9FFF'}}>
