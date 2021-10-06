@@ -88,7 +88,7 @@ export default function SecondPage() {
                 size="small" />
             </FormControl>
             <br />
-            <FormControl sx={{ minWidth: 120 }}>
+            <FormControl sx={{ minWidth: 120 }} style={{marginBottom:'1rem'}}>
               <InputLabel id="combatant1damage">
                 Damage
               </InputLabel>
@@ -108,6 +108,7 @@ export default function SecondPage() {
               <MenuItem value={20}>d20</MenuItem>
               </Select>
             </FormControl>
+            <br />
             <FormControl sx={{ maxWidth: 120 }}>
               <InputLabel htmlFor="combatant1damagebonus">
                 Bonus
@@ -184,7 +185,7 @@ export default function SecondPage() {
                 size="small" />
             </FormControl>
             <br />
-            <FormControl sx={{ minWidth: 120 }}>
+            <FormControl sx={{ minWidth: 120 }} style={{marginBottom:'1rem'}}>
               <InputLabel id="combatant2damage">
                 Damage
               </InputLabel>
@@ -203,6 +204,7 @@ export default function SecondPage() {
               <MenuItem value={20}>d20</MenuItem>
               </Select>
             </FormControl>
+            <br />
             <FormControl sx={{ maxWidth: 120 }}>
               <InputLabel htmlFor="combatant2damagebonus">
                 Bonus
