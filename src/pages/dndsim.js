@@ -1,5 +1,4 @@
 import * as React from "react"
-import { Link } from "gatsby"
 import InputLabel from '@mui/material/InputLabel';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import FormControl from '@mui/material/FormControl';
@@ -89,7 +88,7 @@ export default function SecondPage() {
             </FormControl>
             <br />
             <FormControl sx={{ minWidth: 120 }} style={{marginBottom:'1rem'}}>
-              <InputLabel id="combatant1damage">
+              <InputLabel htmlFor="combatant1damage">
                 Damage
               </InputLabel>
               <Select 
@@ -230,6 +229,11 @@ export default function SecondPage() {
       <ol className="readout" id="readout">
       {/* Battle data will populate here, should give both combatants the same amount of turns. */}
       </ol>
+    </div>
+    <div className="centered">
+      <Button size="small" variant="contained" href="https://github.com/boosterlong/resume-portfolio">
+        GitHub
+      </Button>
     </div>
   </Layout>
   )

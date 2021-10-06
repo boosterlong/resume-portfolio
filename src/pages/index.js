@@ -60,12 +60,12 @@ const IndexPage = () => (
       <div class="column">
         <div class="card">
               <h4>
-                GZCLP Workout Generator
+                Dungeons and Dragons Combat Simulator
               </h4>
               <p class="descriptor hidescroll">
-                Using the Expo-CLI for React-Native development, took a workout generator concept and constructed an app. 
+                Took the basic mechanics of the D&D D20 system and made a simulator to quickly determine the winner between two characters. 
               </p>
-              <a class="outbound-link" href="https://github.com/boosterlong/PumpDump">GitHub</a>
+              <a class="outbound-link" href="https://blakechartrand.com/dndsim">Simulator</a>
             </div>
       </div>
       <div class="column">
