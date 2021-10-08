@@ -31,7 +31,6 @@ function getRandomInt(max) {
 
 function rollToHit(bonus, armor) {
     let roll = rollDie(20) + parseInt(bonus)
-    console.log(roll)
     if (roll >= armor) {
         return true
     }
@@ -61,10 +60,58 @@ function clearBox() {
   result.textContent = ''
 }
 
+export async function assignCombatant1Stats(link) {
+  const response = await fetch(link);
+  const jsonResult = await response.json();
+  let name = document.getElementById('combatant1');
+  name.value = jsonResult.name;
+  let hp = document.getElementById('combatant1hp');
+  hp.value = jsonResult.hit_points;
+  let armor = document.getElementById('combatant1ac');
+  armor.value = jsonResult.armor_class;
+  let bab = document.getElementById('combatant1bab');
+  if (Number.isInteger(jsonResult.actions[0].attack_bonus)) {
+    bab.value = jsonResult.actions[0].attack_bonus;
+  }
+  else if (Number.isInteger(jsonResult.actions[1].attack_bonus)) {
+    bab.value = jsonResult.actions[1].attack_bonus;
+  }
+  else {
+    bab.value = 0;
+  }
+  let damagebonus = document.getElementById('combatant1damagebonus');
+  damagebonus.value = Math.floor(((jsonResult.strength - 10) / 2));
+}
+
+export async function assignCombatant2Stats(link) {
+  const response = await fetch(link);
+  const jsonResult = await response.json();
+  let name = document.getElementById('combatant2');
+  name.value = jsonResult.name;
+  let hp = document.getElementById('combatant2hp');
+  hp.value = jsonResult.hit_points;
+  let armor = document.getElementById('combatant2ac');
+  armor.value = jsonResult.armor_class;
+  let bab = document.getElementById('combatant2bab');
+  if (Number.isInteger(jsonResult.actions[0].attack_bonus)) {
+    bab.value = jsonResult.actions[0].attack_bonus;
+  }
+  else if (Number.isInteger(jsonResult.actions[1].attack_bonus)) {
+    bab.value = jsonResult.actions[1].attack_bonus;
+  }
+  else {
+    bab.value = 0;
+  }
+  let damagebonus = document.getElementById('combatant2damagebonus');
+  damagebonus.value = Math.floor(((jsonResult.strength - 10) / 2));
+}
+
 export function simulate(damage1, damage2) {
   updateStats()
   clearBox()
+  let counter = 0
   do {
+    counter = (counter += 1)
       if (rollToHit(tohit2, ac1)) {
         hp1 = (hp1 - ((+rollDie(damage2)) + +damagebonus2));
       }
@@ -74,6 +121,6 @@ export function simulate(damage1, damage2) {
     battleResult = `${name1} HP ${hp1} ${name2} HP ${hp2}`
     readOut()
   }
-  while ((hp1 > 0) && (hp2 > 0));
+  while ((hp1 > 0) && (hp2 > 0) && (counter < 100));
 
 }

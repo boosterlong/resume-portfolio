@@ -45,7 +45,7 @@ const IndexPage = () => (
           </div>
       </div>
       <div class="column">
-      <div class="card">
+        <div class="card">
             <h4>
               Chartrand Photo
             </h4>

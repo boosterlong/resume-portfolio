@@ -6,11 +6,28 @@ import Button from '@mui/material/Button';
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import { simulate } from "../components/dndfunctions"
+import { simulate, assignCombatant1Stats, assignCombatant2Stats } from "../components/dndfunctions"
 import { MenuItem, Select } from "@mui/material";
 
 
 export default function SecondPage() {
+
+
+  const [monster1, setMonster1] = React.useState('')
+
+  const pickMonster1 = (event) => {
+    setMonster1(event.target.value);
+    const target = `https://www.dnd5eapi.co/api/monsters/${event.target.value}`
+    assignCombatant1Stats(target)
+  }
+
+  const [monster2, setMonster2] = React.useState('')
+
+  const pickMonster2 = (event) => {
+    setMonster2(event.target.value);
+    const target = `https://www.dnd5eapi.co/api/monsters/${event.target.value}`
+    assignCombatant2Stats(target)
+  }
 
   const [dice1, setDice1] = React.useState(8);
 
@@ -32,6 +49,26 @@ export default function SecondPage() {
         <div className="column" style={{backgroundColor:'#6B9FFF'}}>
           <h2>Combatant 1</h2>
           <form>
+            <FormControl sx={{ minWidth: 120 }} style={{marginBottom:'1rem'}}>
+              <InputLabel htmlFor="Monster1">
+                Monster
+              </InputLabel>
+              <Select 
+              labelId="Monster1"
+              value={monster1}
+              label="Monster" 
+              onChange={pickMonster1}
+              size="small"
+              id="Monster1"
+              >
+              <MenuItem value={'guard'}>Guard</MenuItem>
+              <MenuItem value={'orc'}>Orc</MenuItem>
+              <MenuItem value={'adult-red-dragon'}>Adult Red Dragon</MenuItem>
+              <MenuItem value={'cultist'}>Cultist</MenuItem>
+              <MenuItem value={'bandit'}>Bandit</MenuItem>
+              </Select>
+            </FormControl>
+            <br />
             <FormControl style={{marginBottom:'1rem'}}>
               <InputLabel
                 htmlFor="combatant1">
@@ -41,7 +78,7 @@ export default function SecondPage() {
                 label="Name"
                 id="combatant1"
                 name="combatant1"
-                defaultValue="Town Guard"
+                defaultValue="Name"
                 size="small"
               />
             </FormControl>
@@ -55,7 +92,7 @@ export default function SecondPage() {
                 type="number"
                 id="combatant1hp"
                 name="combatant1hp"
-                defaultValue="11"
+                defaultValue="0"
                 size="small"/>
             </FormControl>
             <br />
@@ -69,7 +106,7 @@ export default function SecondPage() {
                 type="number"
                 id="combatant1ac"
                 name="combatant1ac"
-                defaultValue="16" 
+                defaultValue="0" 
                 size="small"/>
             </FormControl>
             <br />
@@ -77,13 +114,12 @@ export default function SecondPage() {
               <InputLabel htmlFor="combatant1bab">
                 Bonus To Hit
               </InputLabel>
-              <br />
               <OutlinedInput 
                 label="Bonus To Hit"
                 type="number"
                 id="combatant1bab"
                 name="combatant1bab"
-                defaultValue="3"
+                defaultValue="0"
                 size="small" />
             </FormControl>
             <br />
@@ -106,13 +142,12 @@ export default function SecondPage() {
               <MenuItem value={12}>d12</MenuItem>
               <MenuItem value={20}>d20</MenuItem>
               </Select>
+              <p>Does not autofill yet</p>
             </FormControl>
-            <br />
             <FormControl sx={{ maxWidth: 120 }}>
               <InputLabel htmlFor="combatant1damagebonus">
                 Bonus
               </InputLabel>
-              <br />
               <OutlinedInput 
                 label="Bonus"
                 type="number"
@@ -129,6 +164,26 @@ export default function SecondPage() {
       <div className="column" style={{backgroundColor:'#FFCB6B'}}>
         <h2>Combatant 2</h2>
         <form>
+          <FormControl sx={{ minWidth: 120 }} style={{marginBottom:'1rem'}}>
+              <InputLabel htmlFor="Monster2">
+                Monster
+              </InputLabel>
+              <Select 
+              labelId="Monster2"
+              value={monster2}
+              label="Monster" 
+              onChange={pickMonster2}
+              size="small"
+              id="Monster1"
+              >
+              <MenuItem value={'guard'}>Guard</MenuItem>
+              <MenuItem value={'orc'}>Orc</MenuItem>
+              <MenuItem value={'adult-red-dragon'}>Adult Red Dragon</MenuItem>
+              <MenuItem value={'cultist'}>Cultist</MenuItem>
+              <MenuItem value={'bandit'}>Bandit</MenuItem>
+              </Select>
+            </FormControl>
+            <br />
             <FormControl style={{marginBottom:'1rem'}}>
               <InputLabel
                 htmlFor="combatant2">
@@ -174,7 +229,6 @@ export default function SecondPage() {
               <InputLabel htmlFor="combatant2bab">
                 Bonus To Hit
               </InputLabel>
-              <br />
               <OutlinedInput 
                 label="Bonus To Hit"
                 type="number"
@@ -202,13 +256,12 @@ export default function SecondPage() {
               <MenuItem value={12}>d12</MenuItem>
               <MenuItem value={20}>d20</MenuItem>
               </Select>
+              <p>Does not autofill yet</p>
             </FormControl>
-            <br />
             <FormControl sx={{ maxWidth: 120 }}>
               <InputLabel htmlFor="combatant2damagebonus">
                 Bonus
               </InputLabel>
-              <br />
               <OutlinedInput 
                 label="Bonus"
                 type="number"
