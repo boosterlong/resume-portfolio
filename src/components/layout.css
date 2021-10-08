@@ -626,7 +626,6 @@ pre tt:after {
     float: left;
     width: 49%;
     padding: 10px;
-    height: 430px;
     border: 1px dotted #ffcb6b;
     margin: 0.1rem;
   }
