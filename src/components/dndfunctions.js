@@ -1,3 +1,5 @@
+
+
 var name1 = null
 var name2 = null
 var ac1 = null
@@ -82,6 +84,10 @@ export async function assignCombatant1Stats(link) {
   let damagebonus = document.getElementById('combatant1damagebonus');
   damagebonus.value = Math.floor(((jsonResult.strength - 10) / 2));
 }
+
+var monsterArray = []
+var monsterListData = null
+
 
 
 

@@ -3,6 +3,8 @@ import InputLabel from '@mui/material/InputLabel';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
+import fetch from 'cross-fetch'
+
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -10,21 +12,15 @@ import { simulate, assignCombatant1Stats, assignCombatant2Stats } from "../compo
 import { MenuItem, Select, TextField, Autocomplete } from "@mui/material";
 
 
+
 export default function SecondPage() {
 
-
-  const [monster1, setMonster1] = React.useState('')
-
   const pickMonster1 = (event) => {
-    setMonster1(event);
     const target = `https://www.dnd5eapi.co/api/monsters/${event.value}`
     assignCombatant1Stats(target)
   }
 
-  const [monster2, setMonster2] = React.useState('')
-
   const pickMonster2 = (event) => {
-    setMonster2(event);
     const target = `https://www.dnd5eapi.co/api/monsters/${event.value}`
     assignCombatant2Stats(target)
   }
@@ -40,17 +36,18 @@ export default function SecondPage() {
     setDice2(event.target.value);
   };
 
-  var monsterList = [];
+  var monsterList = []
 
-  async function getMonsterList() {
-    const response = await fetch(`https://www.dnd5eapi.co/api/monsters/`);
+  async function getMonsterArray() {
+    const response = await fetch('https://www.dnd5eapi.co/api/monsters/');
     const jsonResult = await response.json();
     for (let i = 0; i < jsonResult.results.length; i++) {
       monsterList.push(jsonResult.results[i].index)
     }
   }
-  
-  getMonsterList()
+
+  getMonsterArray()
+
 
 
   return (
@@ -287,4 +284,3 @@ export default function SecondPage() {
   </Layout>
   )
 }
-
