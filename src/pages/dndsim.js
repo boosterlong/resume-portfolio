@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import { simulate, assignCombatant1Stats, assignCombatant2Stats } from "../components/dndfunctions"
-import { MenuItem, Select } from "@mui/material";
+import { MenuItem, Select, TextField, Autocomplete } from "@mui/material";
 
 
 export default function SecondPage() {
@@ -16,29 +16,41 @@ export default function SecondPage() {
   const [monster1, setMonster1] = React.useState('')
 
   const pickMonster1 = (event) => {
-    setMonster1(event.target.value);
-    const target = `https://www.dnd5eapi.co/api/monsters/${event.target.value}`
+    setMonster1(event);
+    const target = `https://www.dnd5eapi.co/api/monsters/${event.value}`
     assignCombatant1Stats(target)
   }
 
   const [monster2, setMonster2] = React.useState('')
 
   const pickMonster2 = (event) => {
-    setMonster2(event.target.value);
-    const target = `https://www.dnd5eapi.co/api/monsters/${event.target.value}`
+    setMonster2(event);
+    const target = `https://www.dnd5eapi.co/api/monsters/${event.value}`
     assignCombatant2Stats(target)
   }
 
-  const [dice1, setDice1] = React.useState(8);
+  const [dice1, setDice1] = React.useState(6);
 
   const handleChange = (event) => {
     setDice1(event.target.value); 
   };
-  const [dice2, setDice2] = React.useState(12);
+  const [dice2, setDice2] = React.useState(6);
 
   const handleChange2 = (event) => {
     setDice2(event.target.value);
   };
+
+  var monsterList = [];
+
+  async function getMonsterList() {
+    const response = await fetch(`https://www.dnd5eapi.co/api/monsters/`);
+    const jsonResult = await response.json();
+    for (let i = 0; i < jsonResult.results.length; i++) {
+      monsterList.push(jsonResult.results[i].index)
+    }
+  }
+  
+  getMonsterList()
 
 
   return (
@@ -49,26 +61,6 @@ export default function SecondPage() {
         <div className="column" style={{backgroundColor:'#6B9FFF'}}>
           <h2>Combatant 1</h2>
           <form>
-            <FormControl sx={{ minWidth: 120 }} style={{marginBottom:'1rem'}}>
-              <InputLabel htmlFor="Monster1">
-                Monster
-              </InputLabel>
-              <Select 
-              labelId="Monster1"
-              value={monster1}
-              label="Monster" 
-              onChange={pickMonster1}
-              size="small"
-              id="Monster1"
-              >
-              <MenuItem value={'guard'}>Guard</MenuItem>
-              <MenuItem value={'orc'}>Orc</MenuItem>
-              <MenuItem value={'adult-red-dragon'}>Adult Red Dragon</MenuItem>
-              <MenuItem value={'cultist'}>Cultist</MenuItem>
-              <MenuItem value={'bandit'}>Bandit</MenuItem>
-              </Select>
-            </FormControl>
-            <br />
             <FormControl style={{marginBottom:'1rem'}}>
               <InputLabel
                 htmlFor="combatant1">
@@ -156,6 +148,18 @@ export default function SecondPage() {
                 defaultValue="1"
                 size="small" />
             </FormControl>
+            <br />
+            <FormControl style={{marginBottom:'1rem'}}>
+            <Autocomplete
+              id="monster1"
+              options={monsterList}
+              sx={{ width: 300 }}
+              renderInput={(params) => <TextField {...params} label="Monster" />}
+            />
+            <Button variant="contained" onClick={() => pickMonster1(document.getElementById('monster1'))}>
+              Autofill from API
+            </Button>
+            </FormControl>
           </form>
         </div>
 
@@ -164,26 +168,6 @@ export default function SecondPage() {
       <div className="column" style={{backgroundColor:'#FFCB6B'}}>
         <h2>Combatant 2</h2>
         <form>
-          <FormControl sx={{ minWidth: 120 }} style={{marginBottom:'1rem'}}>
-              <InputLabel htmlFor="Monster2">
-                Monster
-              </InputLabel>
-              <Select 
-              labelId="Monster2"
-              value={monster2}
-              label="Monster" 
-              onChange={pickMonster2}
-              size="small"
-              id="Monster1"
-              >
-              <MenuItem value={'guard'}>Guard</MenuItem>
-              <MenuItem value={'orc'}>Orc</MenuItem>
-              <MenuItem value={'adult-red-dragon'}>Adult Red Dragon</MenuItem>
-              <MenuItem value={'cultist'}>Cultist</MenuItem>
-              <MenuItem value={'bandit'}>Bandit</MenuItem>
-              </Select>
-            </FormControl>
-            <br />
             <FormControl style={{marginBottom:'1rem'}}>
               <InputLabel
                 htmlFor="combatant2">
@@ -193,7 +177,7 @@ export default function SecondPage() {
                 label="Name"
                 id="combatant2"
                 name="combatant2"
-                defaultValue="Orc"
+                defaultValue="Name"
                 size="small"
               />
             </FormControl>
@@ -207,7 +191,7 @@ export default function SecondPage() {
                 type="number"
                 id="combatant2hp"
                 name="combatant2hp"
-                defaultValue="15"
+                defaultValue="0"
                 size="small"/>
             </FormControl>
             <br />
@@ -221,7 +205,7 @@ export default function SecondPage() {
                 type="number"
                 id="combatant2ac"
                 name="combatant2ac"
-                defaultValue="13" 
+                defaultValue="0" 
                 size="small"/>
             </FormControl>
             <br />
@@ -234,7 +218,7 @@ export default function SecondPage() {
                 type="number"
                 id="combatant2bab"
                 name="combatant2bab"
-                defaultValue="5"
+                defaultValue="0"
                 size="small" />
             </FormControl>
             <br />
@@ -269,6 +253,18 @@ export default function SecondPage() {
                 name="combatant2damagebonus"
                 defaultValue="3"
                 size="small" />
+            </FormControl>
+            <br />
+            <FormControl style={{marginBottom:'1rem'}}>
+            <Autocomplete
+              id="monster2"
+              options={monsterList}
+              sx={{ width: 300 }}
+              renderInput={(params) => <TextField {...params} label="Monster" />}
+            />
+            <Button variant="contained" onClick={() => pickMonster2(document.getElementById('monster2'))}>
+              Autofill from API
+            </Button>
             </FormControl>
           </form>
       </div>

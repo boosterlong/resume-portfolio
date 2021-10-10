@@ -83,6 +83,8 @@ export async function assignCombatant1Stats(link) {
   damagebonus.value = Math.floor(((jsonResult.strength - 10) / 2));
 }
 
+
+
 export async function assignCombatant2Stats(link) {
   const response = await fetch(link);
   const jsonResult = await response.json();
