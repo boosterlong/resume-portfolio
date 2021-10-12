@@ -15,14 +15,64 @@ import { MenuItem, Select, TextField, Autocomplete } from "@mui/material";
 
 export default function SecondPage() {
 
+  async function getMonsterDamage1(monster) {
+    const response = await fetch(`https://www.dnd5eapi.co/api/monsters/${monster}`);
+    const jsonResult = await response.json();
+    try {
+      if ((jsonResult.actions[0].attack_bonus) && (jsonResult.actions[0].damage[0].damage_dice).includes('d')) {
+        let fullDamageDie = jsonResult.actions[0].damage[0].damage_dice
+        let splitDamageDie = fullDamageDie.split('d')
+        let splitDamageDieLessBonus = splitDamageDie[1].split('+')
+        setDice1(splitDamageDieLessBonus[0])
+        let bonus = document.getElementById('combatant1damagebonus');
+        bonus.value = splitDamageDieLessBonus[1]
+      }
+      else {
+        let fullDamageDie = jsonResult.actions[1].damage[0].damage_dice
+        let splitDamageDie = fullDamageDie.split('d')
+        let splitDamageDieLessBonus = splitDamageDie[1].split('+')
+        setDice1(splitDamageDieLessBonus[0])
+        let bonus = document.getElementById('combatant1damagebonus');
+        bonus.value = splitDamageDieLessBonus[1]
+      } }
+    catch {
+      setDice1(4)
+  }}
+
+  async function getMonsterDamage2(monster) {
+    const response = await fetch(`https://www.dnd5eapi.co/api/monsters/${monster}`);
+    const jsonResult = await response.json();
+    try {
+      if ((jsonResult.actions[0].attack_bonus) && (jsonResult.actions[0].damage[0].damage_dice).includes('d')) {
+        let fullDamageDie = jsonResult.actions[0].damage[0].damage_dice
+        let splitDamageDie = fullDamageDie.split('d')
+        let splitDamageDieLessBonus = splitDamageDie[1].split('+')
+        setDice2(splitDamageDieLessBonus[0])
+        let bonus = document.getElementById('combatant2damagebonus');
+        bonus.value = splitDamageDieLessBonus[1]
+      }
+      else {
+        let fullDamageDie = jsonResult.actions[1].damage[0].damage_dice
+        let splitDamageDie = fullDamageDie.split('d')
+        let splitDamageDieLessBonus = splitDamageDie[1].split('+')
+        setDice2(splitDamageDieLessBonus[0])
+        let bonus = document.getElementById('combatant2damagebonus');
+        bonus.value = splitDamageDieLessBonus[1]
+      } }
+    catch {
+      setDice2(4)
+  }}
+
   const pickMonster1 = (event) => {
     const target = `https://www.dnd5eapi.co/api/monsters/${event.value}`
     assignCombatant1Stats(target)
+    getMonsterDamage1(event.value)
   }
 
   const pickMonster2 = (event) => {
     const target = `https://www.dnd5eapi.co/api/monsters/${event.value}`
     assignCombatant2Stats(target)
+    getMonsterDamage2(event.value)
   }
 
   const [dice1, setDice1] = React.useState(6);
@@ -53,6 +103,30 @@ export default function SecondPage() {
   return (
   <Layout>
     <Seo title="DnD Combat Sim" />
+    <div class="content">
+      <h4>
+        Hey friends! This is my one-on-one, no-initiative, NPC duel simulator.
+      </h4>
+      <p>
+        It is in a working state right now, and you're free to play around with it but there are some things missing that I will be adding.
+      </p>
+      <ul class="tight">
+        <li>
+          Critical hits
+        </li>
+        <li>
+          Multi-die damage rolls
+        </li>
+        <li>
+          Multiple attacks
+        </li>
+        <li>
+          A cleaner, more verbose damage log
+        </li>
+      </ul>
+      <p>
+      </p>
+    </div>
 {/* Does not format great on mobile yet. But is passable for now. */}
       <div className="row">
         <div className="column" style={{backgroundColor:'#6B9FFF'}}>
@@ -131,7 +205,7 @@ export default function SecondPage() {
               <MenuItem value={12}>d12</MenuItem>
               <MenuItem value={20}>d20</MenuItem>
               </Select>
-              <p>Does not autofill yet</p>
+              <p>Single Dice Only*</p>
             </FormControl>
             <FormControl sx={{ maxWidth: 120 }}>
               <InputLabel htmlFor="combatant1damagebonus">
@@ -237,7 +311,7 @@ export default function SecondPage() {
               <MenuItem value={12}>d12</MenuItem>
               <MenuItem value={20}>d20</MenuItem>
               </Select>
-              <p>Does not autofill yet</p>
+              <p>Single Dice Only*</p>
             </FormControl>
             <FormControl sx={{ maxWidth: 120 }}>
               <InputLabel htmlFor="combatant2damagebonus">

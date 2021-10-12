@@ -640,10 +640,13 @@ pre tt:after {
 }
 
 
-ul {
+ul.checks {
   list-style-image: url(../images/check.svg);
   font-size: 1rem;
   padding-left: 20px;
+}
+ul.tight {
+  line-height: 0.75rem;
 }
 
 p.descriptor {

@@ -81,13 +81,7 @@ export async function assignCombatant1Stats(link) {
   else {
     bab.value = 0;
   }
-  let damagebonus = document.getElementById('combatant1damagebonus');
-  damagebonus.value = Math.floor(((jsonResult.strength - 10) / 2));
 }
-
-var monsterArray = []
-var monsterListData = null
-
 
 
 

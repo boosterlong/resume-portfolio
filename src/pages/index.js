@@ -15,7 +15,7 @@ const IndexPage = () => (
     </p>
     <h3 class="horizontal-line">Programming Skills</h3>
     <p>
-      <ul>
+      <ul class="checks">
         <li>HTML/JS/CSS (3 years)</li>
         <li>React (1 year)</li>
         <li>TypeScript (1 year)</li>
@@ -24,7 +24,7 @@ const IndexPage = () => (
       </ul>
     </p>
     <h3 class="horizontal-line">Other Webdev Adjacent Skills</h3>
-    <ul>
+    <ul class="checks">
       <li>Web Design (3 years)</li>
       <li>Adobe Creative Suite (14 years)</li>
       <li>Photography (8 years)</li>
