@@ -36,12 +36,12 @@ const IndexPage = () => (
       <div class="column">
         <div class="card">
             <h4>
-              Disco Trivialis
+              imhungry.app
             </h4>
             <p class="descriptor hidescroll">
-              Assisted an experienced developer create a multiplayer web-app using a React frontend and a Node.js backend. The app consisted of rounds of trivia while betting points. Designed and styled the user interface to work with game functions offered.
+              Used a public API from theMealDB.com to fetch and arrange JSON data into a functional website.
             </p>
-            <a class="outbound-link" href="https://imgur.com/a/3yDoOhQ">Screenshots</a>
+            <a class="outbound-link" href="https://imhungry.app/">App</a> / <a class="outbound-link" href="https://github.com/boosterlong/im-hungry">Repo</a>
           </div>
       </div>
       <div class="column">
